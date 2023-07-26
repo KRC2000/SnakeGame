@@ -16,7 +16,7 @@ public:
     /**
      * Default constructor
      */
-    Level(sf::Vector2i size_in_tiles, std::string tile_texture_path);
+    Level(sf::Vector2i size_in_tiles, float scale, std::string tile_texture_path);
     void Draw(sf::RenderTarget& target);
 
     sf::RectangleShape Stamp;

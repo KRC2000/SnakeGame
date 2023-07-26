@@ -4,7 +4,7 @@ CFLAGS := -std=c++11
 SFML_LIBS := -lsfml-graphics -lsfml-window -lsfml-system
 
 # Source files and executable name
-SRCS := main.cpp Level.cpp
+SRCS := *.cpp
 EXECUTABLE := my_sfml_project
 
 all: $(EXECUTABLE)
