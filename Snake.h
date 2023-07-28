@@ -14,26 +14,36 @@
 class Snake
 {
 public:
-    enum Direction
-    {
-        NORTH, SOUTH, WEST, EAST
-    };
-    /**
-     * Default constructor
-     */
-    Snake(Level & level, float scale);
-    void Update(float delta);
-    void draw(sf::RenderTarget & target);
+	enum Direction
+	{
+		NORTH, SOUTH, WEST, EAST
+	};
+	/**
+	 * Default constructor
+	 */
+	Snake(Level & level);
+	void Update(float delta);
+	std::vector<sf::Vector2i> getOccupiedTiles() const;
+	bool IsThereHeadBodyOverlap();
+	void MoveHead(Snake::Direction direction);
+	void MoveHeadNorth();
+	void MoveHeadSouth();
+	void MoveHeadWest();
+	void MoveHeadEast();
+	void AdvanceBody();
+	void Grow();
+	void draw(sf::RenderTarget & target);
 
-    Level* level = NULL;
-    Direction direction = Snake::Direction::EAST;
-    std::vector<sf::Vector2i> segments;
-    float scale;
-    sf::Sprite stamp;
-    sf::Texture body_t;
-    sf::Texture head_t;
-    float time_accumulator = 0;
-    float tickdelay = 1;
+	Level* level = NULL;
+	Direction desiredDirection = Snake::Direction::EAST;
+	Direction previousDirection = Snake::Direction::EAST;
+	std::vector<sf::Vector2i> segments;
+	sf::Sprite body_stamp;
+	sf::RectangleShape head;
+	sf::Texture body_t, head_t;
+	float time_accumulator = 0;
+	float tickdelay = 1;
+	bool justAte = false;
 };
 
 #endif // SNAKE_H

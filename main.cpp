@@ -2,9 +2,9 @@
 
 int main()
 {
-    SnakeGame game({5, 5}, 4);
+	SnakeGame game({5, 5}, 4);
 
-    game.Run();
+	game.Run();
 
-    return 0;
+	return 0;
 }

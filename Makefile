@@ -1,6 +1,6 @@
 # Compiler and flags
 CC := g++
-CFLAGS := -std=c++11
+CFLAGS := -std=c++11 -g
 SFML_LIBS := -lsfml-graphics -lsfml-window -lsfml-system
 
 # Source files and executable name

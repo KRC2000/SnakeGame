@@ -13,16 +13,22 @@
 class Level
 {
 public:
-    /**
-     * Default constructor
-     */
-    Level(sf::Vector2i size_in_tiles, float scale, std::string tile_texture_path);
-    void Draw(sf::RenderTarget& target);
+	/**
+	 * Default constructor
+	 */
+	Level(sf::Vector2i size_in_tiles, std::string tile_texture_path);
+	void RespawnFood(std::vector<sf::Vector2i> occupiedTiles);
+	bool IsFieldFull(std::vector<sf::Vector2i> occupiedTiles) const;
+	bool IsTilePositionInside(sf::Vector2i pos) const;
+	bool IsFoodHere(sf::Vector2i pos) const;
+	void Draw(sf::RenderTarget& target);
 
-    sf::RectangleShape Stamp;
-    sf::Vector2i SizeTiles;
-    sf::Texture TileTexture;
+	sf::RectangleShape Stamp;
+	sf::Vector2i SizeTiles;
+	sf::Texture TileTexture, FoodTexture;
 
+	sf::Sprite Food;
+	sf::Vector2i FoodTilePosition;
 };
 
 #endif // LEVEL_H

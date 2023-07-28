@@ -16,20 +16,17 @@ class SnakeGame
 {
 public:
 
-    SnakeGame(sf::Vector2i size_in_tiles, float scale);
-    ~SnakeGame();
-    void Run();
-    void RespawnFood();
+	SnakeGame(sf::Vector2i size_in_tiles, float scale);
+	~SnakeGame();
+	void Run();
 
-    float Scale;
-    sf::RenderWindow window;
-    Level level;
-    Snake snake;
+	float Scale;
+	sf::RenderWindow window;
+	Level level;
+	Snake snake;
 
-    sf::Texture food_t;
-    sf::Sprite food;
-    sf::Vector2i food_location;
-    sf::Clock Timer;
+
+	sf::Clock Timer;
 };
 
 #endif // SNAKEGAME_H
