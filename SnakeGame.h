@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 <copyright holder> <email>
+// SPDX-FileCopyrightText: 2023 Roman Kovalov rokosta@proton.me
 // SPDX-License-Identifier: MIT
 
 #ifndef SNAKEGAME_H
@@ -20,6 +20,7 @@ public:
 	~SnakeGame();
 	void Run();
 
+	sf::View view;
 	float Scale;
 	sf::RenderWindow window;
 	Level level;

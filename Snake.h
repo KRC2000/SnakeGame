@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 <copyright holder> <email>
+// SPDX-FileCopyrightText: 2023 Roman Kovalov rokosta@proton.me
 // SPDX-License-Identifier: MIT
 
 #ifndef SNAKE_H

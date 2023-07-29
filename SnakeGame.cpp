@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 <copyright holder> <email>
+// SPDX-FileCopyrightText: 2023 Roman Kovalov rokosta@proton.me
 // SPDX-License-Identifier: MIT
 
 #include "SnakeGame.h"
@@ -7,7 +7,9 @@ SnakeGame::SnakeGame(sf::Vector2i size_in_tiles, float scale):Scale(scale), leve
 {
 	srand((unsigned) time(NULL));
 
-	window.create(sf::VideoMode(level.Stamp.getGlobalBounds().width, level.Stamp.getGlobalBounds().height), "Snake Game");
+	sf::Vector2f windowSize = {level.Stamp.getGlobalBounds().width, level.Stamp.getGlobalBounds().height};
+	view.reset(sf::FloatRect(0, 0, windowSize.x, windowSize.y));
+	window.create(sf::VideoMode(view.getSize().x * scale, view.getSize().y * scale), "Snake Game");
 
 
 	level.RespawnFood(snake.getOccupiedTiles());
@@ -45,6 +47,7 @@ void SnakeGame::Run()
 		snake.Update(Timer.restart().asSeconds());
 
 		window.clear();
+		window.setView(view);
 		level.Draw(window);
 
 		snake.draw(window);

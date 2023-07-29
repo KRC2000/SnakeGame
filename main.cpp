@@ -1,8 +1,14 @@
 #include "SnakeGame.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	SnakeGame game({5, 5}, 4);
+	printf("You have entered %d arguments:\n", argc);
+
+	for (int i = 0; i < argc; i++) {
+		printf("%s\n", argv[i]);
+	}
+
+	SnakeGame game({50, 50}, 0.5);
 
 	game.Run();
 
