@@ -1,5 +1,6 @@
 # SnakeGame
-Snake game written on c++ using SFML
+Snake game written on c++ using SFML  
+![Screenshot_20230809_184844](https://github.com/KRC2000/SnakeGame/assets/47914319/caca1ae7-c693-4e49-8350-697faca4b0b0)
 
 # Lore
 Although the game bears the name "SnakeGame," it revolves around a charming caterpillar—a ravenously hungry one at that. Its insatiable appetite? Apples. Your task? Propel it towards victory. Demonstrate to this little creature that, in the face of even the most formidable challenges life hurls its way, triumph remains achievable. It matters not that it finds itself ensnared within the confines of a box, unable to traverse diagonally. For there exists a singular focus—a beacon of joy—apples. And with a heart full of determination, our caterpillar friend shall seize those apples, whatever the cost. Let the journey evoke a symphony of emotions, revealing the resilience that beats within its humble form.
@@ -16,3 +17,4 @@ Although the game bears the name "SnakeGame," it revolves around a charming cate
 
 ## Windows
 TODO
+
