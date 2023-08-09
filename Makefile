@@ -4,8 +4,8 @@ CFLAGS := -std=c++11 -g
 SFML_LIBS := -lsfml-graphics -lsfml-window -lsfml-system
 
 # Source files and executable name
-SRCS := *.cpp Argumentator.hpp
-EXECUTABLE := my_sfml_project
+SRCS := *.cpp
+EXECUTABLE := SnakeGame
 
 build: $(EXECUTABLE)
 
