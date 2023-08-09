@@ -1,10 +1,16 @@
 // SPDX-FileCopyrightText: 2023 Roman Kovalov rokosta@proton.me
 // SPDX-License-Identifier: MIT
 
-#include "Level.h"
+#include "Level.hpp"
 
 Level::Level(sf::Vector2i size_in_tiles,std::string tile_texture_path) : SizeTiles(size_in_tiles)
 {
+	if (size_in_tiles.x < 3 || size_in_tiles.y < 3)
+	{
+		printf("Can't create a map with width or height that is less than 3\n");
+		exit(1);
+	}
+
 	TileTexture.loadFromFile((tile_texture_path));
 	TileTexture.setRepeated(true);
 	Stamp.setTexture(&TileTexture);

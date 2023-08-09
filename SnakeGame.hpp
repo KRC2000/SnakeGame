@@ -7,8 +7,8 @@
 #include <random>
 #include <SFML/Graphics.hpp>
 
-#include "Level.h"
-#include "Snake.h"
+#include "Level.hpp"
+#include "Snake.hpp"
 /**
  * @todo write docs
  */
@@ -16,7 +16,7 @@ class SnakeGame
 {
 public:
 
-	SnakeGame(sf::Vector2i size_in_tiles, float scale);
+	SnakeGame(sf::Vector2i size_in_tiles = {5, 5}, float scale = 2, float speed = 2);
 	~SnakeGame();
 	void Run();
 
@@ -25,7 +25,7 @@ public:
 	sf::RenderWindow window;
 	Level level;
 	Snake snake;
-
+	int Score = 0;
 
 	sf::Clock Timer;
 };

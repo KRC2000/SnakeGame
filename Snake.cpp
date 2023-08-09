@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: MIT
 
 #include <iostream>
-#include "Snake.h"
+#include "Snake.hpp"
 
-Snake::Snake(Level & level):level(&level)
+Snake::Snake(Level & level, int & score, float speed):level(&level), score(&score), tickdelay(1.f / speed)
 {
 	body_t.loadFromFile("res/body.png");
 	head_t.loadFromFile("res/head.png");
@@ -36,25 +36,29 @@ void Snake::Update(float delta)
 
 		if (level->IsFieldFull(segments))
 		{
-			std::cout << "You won! Holy shit you a fat snake!\n";
+			printf("You won! Wow!\n");
+			PrintScore();
 			exit(0);
 		}
 
 		if (!level->IsTilePositionInside(segments.front()))
 		{
-			std::cout << "You fucking died!\n";
+			printf("You hit the wall!\n");
+			PrintScore();
 			exit(0);
 		}
 
 		if (level->IsFoodHere(segments.front()))
 		{
 			level->RespawnFood(segments);
+			*score += 1;
 			justAte = true;
 		}
 
 		if (IsThereHeadBodyOverlap())
 		{
-			std::cout << "You bite your tale! Don't do that!'\n";
+			printf("You bit your tale!\n");
+			PrintScore();
 			exit(0);
 		}
 
@@ -146,6 +150,10 @@ void Snake::Grow()
 	justAte = false;
 }
 
+void Snake::PrintScore()
+{
+	printf("Your score is: %i\n", *score);
+}
 
 
 void Snake::draw(sf::RenderTarget& target)

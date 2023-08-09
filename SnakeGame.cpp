@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2023 Roman Kovalov rokosta@proton.me
 // SPDX-License-Identifier: MIT
 
-#include "SnakeGame.h"
+#include "SnakeGame.hpp"
 
-SnakeGame::SnakeGame(sf::Vector2i size_in_tiles, float scale):Scale(scale), level(size_in_tiles, "res/tile.png"), snake(level)
+SnakeGame::SnakeGame(sf::Vector2i size_in_tiles, float scale, float speed):Scale(scale), level(size_in_tiles, "res/tile.png"), snake(level, Score, speed)
 {
 	srand((unsigned) time(NULL));
 

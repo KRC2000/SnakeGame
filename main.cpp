@@ -1,16 +1,22 @@
-#include "SnakeGame.h"
+#include <cstring>
+#include <string>
+#include "Argumentator.hpp"
+#include "SnakeGame.hpp"
 
 int main(int argc, char *argv[])
 {
-	printf("You have entered %d arguments:\n", argc);
+	int sizeX, sizeY;
+	float zoom = 2.f;
+	sizeX = sizeY = 5;
 
-	for (int i = 0; i < argc; i++) {
-		printf("%s\n", argv[i]);
-	}
+	Argumentator::getIntValue(argc, argv, "-w", sizeX);
+	Argumentator::getIntValue(argc, argv, "-h", sizeY);
+	Argumentator::getFloatValue(argc, argv, "-z", zoom);
 
-	SnakeGame game({50, 50}, 0.5);
+	SnakeGame game({sizeX, sizeY}, zoom);
 
 	game.Run();
 
 	return 0;
+
 }

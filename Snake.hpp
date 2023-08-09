@@ -7,7 +7,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
-#include "Level.h"
+#include "Level.hpp"
 /**
  * @todo write docs
  */
@@ -21,7 +21,7 @@ public:
 	/**
 	 * Default constructor
 	 */
-	Snake(Level & level);
+	Snake(Level & level, int & score, float speed);
 	void Update(float delta);
 	std::vector<sf::Vector2i> getOccupiedTiles() const;
 	bool IsThereHeadBodyOverlap();
@@ -32,9 +32,11 @@ public:
 	void MoveHeadEast();
 	void AdvanceBody();
 	void Grow();
+	void PrintScore();
 	void draw(sf::RenderTarget & target);
 
 	Level* level = NULL;
+	int* score = NULL;
 	Direction desiredDirection = Snake::Direction::EAST;
 	Direction previousDirection = Snake::Direction::EAST;
 	std::vector<sf::Vector2i> segments;
